@@ -17,3 +17,4 @@ C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Persistence\obj\Debug\ne
 C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Persistence\obj\Debug\net8.0\ref\AuthServiceIN6BM.Persistence.dll
 C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Persistence\bin\Debug\net8.0\AuthServiceIN6BM.Persistence.runtimeconfig.json
 C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Persistence\obj\Debug\net8.0\AuthServiceIN6BM.Persistence.genruntimeconfig.cache
+C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Persistence\obj\Debug\net8.0\AuthServiceIN6BM.Persistence.sourcelink.json

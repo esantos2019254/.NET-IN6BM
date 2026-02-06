@@ -1,0 +1,352 @@
+{
+  "info": {
+    "_postman_id": "f4648028-e845-4532-871b-f9aa99515370",
+    "name": "AuthServiceIN6BM",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32787282"
+  },
+  "item": [
+    {
+      "name": "Authentication Service (.NET) Copy",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{authDotNetUrl}}/api/v1/health",
+              "host": [
+                "{{authDotNetUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.json().token) {",
+                  "    pm.environment.set('authToken', pm.response.json().token);",
+                  "    pm.environment.set('userId', pm.response.json().user.id);",
+                  "    pm.environment.set('userEmail', pm.response.json().user.email);",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Elmer Rodrigo",
+                  "type": "text"
+                },
+                {
+                  "key": "surname",
+                  "value": "Santos García",
+                  "type": "text"
+                },
+                {
+                  "key": "username",
+                  "value": "esantos",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "coins123",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "12345678",
+                  "type": "text"
+                },
+                {
+                  "key": "profilePicture",
+                  "type": "file",
+                  "src": "/C:/Users/ersan/Downloads/img1.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{authDotNetUrl}}/api/v1/auth/register",
+              "host": [
+                "{{authDotNetUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.json().token) {",
+                  "    pm.environment.set('authToken', pm.response.json().token);",
+                  "    pm.environment.set('userId', pm.response.json().userDetails.id);",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"emailOrUsername\": \"\",\n    \"password\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{authDotNetUrl}}/api/v1/auth/login",
+              "host": [
+                "{{authDotNetUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify Email",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"token\": \"sicJEUL9lV7Vm5gATj6JuBJW1tszxLG_v-umtbUkmFw\"\n}"
+            },
+            "url": {
+              "raw": "{{authDotNetUrl}}/api/v1/auth/verify-email",
+              "host": [
+                "{{authDotNetUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "verify-email"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Resend Verification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{authDotNetUrl}}/api/v1/auth/resend-verification",
+              "host": [
+                "{{authDotNetUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "resend-verification"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Forgot Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{authDotNetUrl}}/api/v1/auth/forgot-password",
+              "host": [
+                "{{authDotNetUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "forgot-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reset Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"token\": \"{{passwordResetToken}}\",\n    \"newPassword\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{authDotNetUrl}}/api/v1/auth/reset-password",
+              "host": [
+                "{{authDotNetUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "reset-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c3JfUGdRRjd3ZGMyVHU3IiwianRpIjoiYjc5ZWYwMGEtZThhNi00NjMwLWE3N2UtNmI2MjJiMWY0NzExIiwiaWF0IjoxNzY0MTA3NTcxLCJyb2xlIjoiVVNFUl9ST0xFIiwiZXhwIjoxNzY0MTA5MzcxLCJpc3MiOiJBdXRoU2VydmljZSIsImF1ZCI6IkF1dGhTZXJ2aWNlIn0.u9XljRE9bFKA-2bX22riOjBmljvgQRlTpFR-3_rEq5Q",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{authDotNetUrl}}/api/v1/auth/profile",
+              "host": [
+                "{{authDotNetUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change Role",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c3JfZDVFTjJ3eHlacWZFIiwianRpIjoiNmMwM2IwNGYtNTFmOS00MjczLThlYWEtNjU5ODBhODUwZWRlIiwiaWF0IjoxNzYzNTYwNjk3LCJleHAiOjE3NjM1NjI0OTcsImlzcyI6IkF1dGhTZXJ2aWNlIiwiYXVkIjoiQXV0aFNlcnZpY2UifQ.PXQkRbRx50gUKURwz1VfgDieLpN1-ZR9OQoy73RbFkQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"roleName\":\"USER_ROLE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{authDotNetUrl}}/api/v1/users/usr_GgZ85QbWCdNc/role",
+              "host": [
+                "{{authDotNetUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "usr_GgZ85QbWCdNc",
+                "role"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

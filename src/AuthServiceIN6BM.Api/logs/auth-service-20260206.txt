@@ -2,3 +2,144 @@
 [2026-02-06 10:47:50 INF] Database ready. Running seed data... {"SourceContext":"Program"}
 [2026-02-06 10:47:51 INF] Database initialization completed successfully {"SourceContext":"Program"}
 [2026-02-06 10:47:51 INF] AuthService API is running at http://localhost:5089. Health endpoint: http://localhost:5089/health {"SourceContext":"Program"}
+[2026-02-06 10:49:24 INF] Checking database connection... {"SourceContext":"Program"}
+[2026-02-06 10:49:24 INF] Database ready. Running seed data... {"SourceContext":"Program"}
+[2026-02-06 10:49:24 INF] Database initialization completed successfully {"SourceContext":"Program"}
+[2026-02-06 10:49:24 INF] AuthService API is running at http://localhost:5089. Health endpoint: http://localhost:5089/health {"SourceContext":"Program"}
+[2026-02-06 11:35:14 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNJ5KOAUM62B:00000001","RequestPath":"/api/v1/register","ConnectionId":"0HNJ5KOAUM62B"}
+[2026-02-06 11:35:14 INF] HTTP POST /api/v1/register responded 404 in 129.6995 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KOAUM62B:00000001","ConnectionId":"0HNJ5KOAUM62B"}
+[2026-02-06 11:35:59 ERR] An unhandled exception occurred {"SourceContext":"AuthServiceIN6BM.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNJ5KOAUM62B:00000002","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJ5KOAUM62B"}
+System.InvalidOperationException: Unable to resolve service for type 'AuthServiceIN6BM.Application.Interfaces.IAuthService' while attempting to activate 'AuthServiceIN6BM.Api.Controllers.AuthController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method26(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthServiceIN6BM.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Api\Middlewares\GlobalExceptionMiddleware.cs:line 18
+[2026-02-06 11:36:00 INF] HTTP POST /api/v1/auth/register responded 400 in 226.2515 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KOAUM62B:00000002","ConnectionId":"0HNJ5KOAUM62B"}
+[2026-02-06 11:39:52 INF] Checking database connection... {"SourceContext":"Program"}
+[2026-02-06 11:39:53 INF] Database ready. Running seed data... {"SourceContext":"Program"}
+[2026-02-06 11:39:53 INF] Database initialization completed successfully {"SourceContext":"Program"}
+[2026-02-06 11:39:53 INF] AuthService API is running at http://localhost:5089. Health endpoint: http://localhost:5089/health {"SourceContext":"Program"}
+[2026-02-06 11:40:06 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNJ5KR25O77H:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJ5KR25O77H"}
+[2026-02-06 11:40:09 INF] User rgarcia registered successfuly {"EventId":{"Id":1001,"Name":"LogUserRegistered"},"SourceContext":"AuthServiceIN6BM.Application.Services.AuthService","ActionId":"43753339-95b5-4822-9e5c-b4573c27d092","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Register (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77H:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJ5KR25O77H"}
+[2026-02-06 11:40:10 INF] HTTP POST /api/v1/auth/register responded 201 in 3426.1454 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77H:00000001","ConnectionId":"0HNJ5KR25O77H"}
+[2026-02-06 11:40:31 ERR] Failed to send email {"SourceContext":"AuthServiceIN6BM.Application.Services.EmailService","ActionId":"43753339-95b5-4822-9e5c-b4573c27d092","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Register (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77H:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJ5KR25O77H"}
+System.Net.Sockets.SocketException (10060): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at MailKit.Net.SocketUtils.SocketConnectState.OnEndConnect(IAsyncResult ar)
+--- End of stack trace from previous location ---
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, CancellationToken cancellationToken)
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, Int32 timeout, CancellationToken cancellationToken)
+   at MailKit.MailService.ConnectNetworkAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at AuthServiceIN6BM.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Application\Services\EmailService.cs:line 118
+[2026-02-06 11:40:31 ERR] Failed to send email {"SourceContext":"AuthServiceIN6BM.Application.Services.EmailService","ActionId":"43753339-95b5-4822-9e5c-b4573c27d092","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Register (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77H:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJ5KR25O77H"}
+System.Net.Sockets.SocketException (10060): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at MailKit.Net.SocketUtils.SocketConnectState.OnEndConnect(IAsyncResult ar)
+--- End of stack trace from previous location ---
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, CancellationToken cancellationToken)
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, Int32 timeout, CancellationToken cancellationToken)
+   at MailKit.MailService.ConnectNetworkAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at AuthServiceIN6BM.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Application\Services\EmailService.cs:line 118
+[2026-02-06 11:40:31 ERR] Failed to send verification email {"SourceContext":"AuthServiceIN6BM.Application.Services.AuthService","ActionId":"43753339-95b5-4822-9e5c-b4573c27d092","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Register (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77H:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJ5KR25O77H"}
+System.InvalidOperationException: Failed to send email: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder.
+ ---> System.Net.Sockets.SocketException (10060): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at MailKit.Net.SocketUtils.SocketConnectState.OnEndConnect(IAsyncResult ar)
+--- End of stack trace from previous location ---
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, CancellationToken cancellationToken)
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, Int32 timeout, CancellationToken cancellationToken)
+   at MailKit.MailService.ConnectNetworkAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at AuthServiceIN6BM.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Application\Services\EmailService.cs:line 118
+   --- End of inner exception stack trace ---
+   at AuthServiceIN6BM.Application.Services.EmailService.SendEmailAsync(String to, String subject, String body) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Application\Services\EmailService.cs:line 170
+   at AuthServiceIN6BM.Application.Services.EmailService.SendEmailVerificationAsync(String email, String username, String token) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Application\Services\EmailService.cs:line 29
+   at AuthServiceIN6BM.Application.Services.AuthService.<>c__DisplayClass9_0.<<RegisterAsync>b__0>d.MoveNext() in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Application\Services\AuthService.cs:line 138
+[2026-02-06 11:42:11 INF] User rgarcia registered successfuly {"EventId":{"Id":1001,"Name":"LogUserRegistered"},"SourceContext":"AuthServiceIN6BM.Application.Services.AuthService","ActionId":"43753339-95b5-4822-9e5c-b4573c27d092","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Register (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77J:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJ5KR25O77J"}
+[2026-02-06 11:42:11 INF] HTTP POST /api/v1/auth/register responded 201 in 2709.2294 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77J:00000001","ConnectionId":"0HNJ5KR25O77J"}
+[2026-02-06 11:42:12 INF] Email sent successfully {"SourceContext":"AuthServiceIN6BM.Application.Services.EmailService","ActionId":"43753339-95b5-4822-9e5c-b4573c27d092","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Register (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77J:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJ5KR25O77J"}
+[2026-02-06 11:42:13 INF] Email pipeline completed {"SourceContext":"AuthServiceIN6BM.Application.Services.EmailService","ActionId":"43753339-95b5-4822-9e5c-b4573c27d092","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Register (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77J:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJ5KR25O77J"}
+[2026-02-06 11:42:13 INF] Email processed {"SourceContext":"AuthServiceIN6BM.Application.Services.EmailService","ActionId":"43753339-95b5-4822-9e5c-b4573c27d092","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Register (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77J:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJ5KR25O77J"}
+[2026-02-06 11:42:13 INF] Verification email sent {"SourceContext":"AuthServiceIN6BM.Application.Services.AuthService","ActionId":"43753339-95b5-4822-9e5c-b4573c27d092","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Register (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77J:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJ5KR25O77J"}
+[2026-02-06 11:44:11 WRN] Failed login attempt {"EventId":{"Id":1003,"Name":"LogFailedLoginAttempt"},"SourceContext":"AuthServiceIN6BM.Application.Services.AuthService","ActionId":"18c64e12-ac1c-4ca1-86a3-878e94f3a707","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Login (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77L:00000001","RequestPath":"/api/v1/auth/login","ConnectionId":"0HNJ5KR25O77L"}
+[2026-02-06 11:44:11 ERR] An unhandled exception occurred {"SourceContext":"AuthServiceIN6BM.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNJ5KR25O77L:00000001","RequestPath":"/api/v1/auth/login","ConnectionId":"0HNJ5KR25O77L"}
+System.UnauthorizedAccessException: User account is disabled
+   at AuthServiceIN6BM.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Application\Services\AuthService.cs:line 184
+   at AuthServiceIN6BM.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Api\controllers\AuthController.cs:line 51
+   at lambda_method541(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthServiceIN6BM.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Api\Middlewares\GlobalExceptionMiddleware.cs:line 18
+[2026-02-06 11:44:11 INF] HTTP POST /api/v1/auth/login responded 401 in 164.4941 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77L:00000001","ConnectionId":"0HNJ5KR25O77L"}
+[2026-02-06 11:44:40 INF] Email sent successfully {"SourceContext":"AuthServiceIN6BM.Application.Services.EmailService","ActionId":"905fbe12-80c1-4178-b5dc-386b066ba3cf","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.VerifyEmail (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77L:00000002","RequestPath":"/api/v1/auth/verify-email","ConnectionId":"0HNJ5KR25O77L"}
+[2026-02-06 11:44:40 INF] Email pipeline completed {"SourceContext":"AuthServiceIN6BM.Application.Services.EmailService","ActionId":"905fbe12-80c1-4178-b5dc-386b066ba3cf","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.VerifyEmail (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77L:00000002","RequestPath":"/api/v1/auth/verify-email","ConnectionId":"0HNJ5KR25O77L"}
+[2026-02-06 11:44:40 INF] Email processed {"SourceContext":"AuthServiceIN6BM.Application.Services.EmailService","ActionId":"905fbe12-80c1-4178-b5dc-386b066ba3cf","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.VerifyEmail (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77L:00000002","RequestPath":"/api/v1/auth/verify-email","ConnectionId":"0HNJ5KR25O77L"}
+[2026-02-06 11:44:40 INF] Email verified successfully for user rgarcia {"SourceContext":"AuthServiceIN6BM.Application.Services.AuthService","ActionId":"905fbe12-80c1-4178-b5dc-386b066ba3cf","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.VerifyEmail (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77L:00000002","RequestPath":"/api/v1/auth/verify-email","ConnectionId":"0HNJ5KR25O77L"}
+[2026-02-06 11:44:40 INF] HTTP POST /api/v1/auth/verify-email responded 200 in 1769.9454 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77L:00000002","ConnectionId":"0HNJ5KR25O77L"}
+[2026-02-06 11:44:48 INF] User login succeeded {"EventId":{"Id":1002,"Name":"LogUserLoggedIn"},"SourceContext":"AuthServiceIN6BM.Application.Services.AuthService","ActionId":"18c64e12-ac1c-4ca1-86a3-878e94f3a707","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Login (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77L:00000003","RequestPath":"/api/v1/auth/login","ConnectionId":"0HNJ5KR25O77L"}
+[2026-02-06 11:44:48 INF] HTTP POST /api/v1/auth/login responded 200 in 107.9367 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77L:00000003","ConnectionId":"0HNJ5KR25O77L"}
+[2026-02-06 11:46:19 INF] HTTP POST /api/v1/auth/resend-verification responded 400 in 42.0145 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77N:00000001","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:46:48 INF] Email sent successfully {"SourceContext":"AuthServiceIN6BM.Application.Services.EmailService","ActionId":"4d26c959-f639-429b-bbb8-b4f3144f9f4b","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.ForgotPassword (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77N:00000002","RequestPath":"/api/v1/auth/forgot-password","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:46:48 INF] Email pipeline completed {"SourceContext":"AuthServiceIN6BM.Application.Services.EmailService","ActionId":"4d26c959-f639-429b-bbb8-b4f3144f9f4b","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.ForgotPassword (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77N:00000002","RequestPath":"/api/v1/auth/forgot-password","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:46:48 INF] Email processed {"SourceContext":"AuthServiceIN6BM.Application.Services.EmailService","ActionId":"4d26c959-f639-429b-bbb8-b4f3144f9f4b","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.ForgotPassword (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77N:00000002","RequestPath":"/api/v1/auth/forgot-password","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:46:48 INF] Password reset email sent to ersantos0018@gmail.com {"SourceContext":"AuthServiceIN6BM.Application.Services.AuthService","ActionId":"4d26c959-f639-429b-bbb8-b4f3144f9f4b","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.ForgotPassword (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77N:00000002","RequestPath":"/api/v1/auth/forgot-password","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:46:48 INF] HTTP POST /api/v1/auth/forgot-password responded 200 in 1412.3361 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77N:00000002","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:47:26 INF] Password reset successfully for user rgarcia {"SourceContext":"AuthServiceIN6BM.Application.Services.AuthService","ActionId":"e7134945-a9cd-4e44-bc57-d26210ffcc9f","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.ResetPassword (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77N:00000003","RequestPath":"/api/v1/auth/reset-password","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:47:26 INF] HTTP POST /api/v1/auth/reset-password responded 200 in 161.6104 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77N:00000003","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:47:34 WRN] Failed login attempt {"EventId":{"Id":1003,"Name":"LogFailedLoginAttempt"},"SourceContext":"AuthServiceIN6BM.Application.Services.AuthService","ActionId":"18c64e12-ac1c-4ca1-86a3-878e94f3a707","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Login (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77N:00000004","RequestPath":"/api/v1/auth/login","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:47:34 ERR] An unhandled exception occurred {"SourceContext":"AuthServiceIN6BM.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNJ5KR25O77N:00000004","RequestPath":"/api/v1/auth/login","ConnectionId":"0HNJ5KR25O77N"}
+System.UnauthorizedAccessException: Invalid credentials
+   at AuthServiceIN6BM.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Application\Services\AuthService.cs:line 191
+   at AuthServiceIN6BM.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Api\controllers\AuthController.cs:line 51
+   at lambda_method541(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthServiceIN6BM.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Proyectos 2026\AuthServiceIN6BM\src\AuthServiceIN6BM.Api\Middlewares\GlobalExceptionMiddleware.cs:line 18
+[2026-02-06 11:47:34 INF] HTTP POST /api/v1/auth/login responded 401 in 85.2734 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77N:00000004","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:47:39 INF] User login succeeded {"EventId":{"Id":1002,"Name":"LogUserLoggedIn"},"SourceContext":"AuthServiceIN6BM.Application.Services.AuthService","ActionId":"18c64e12-ac1c-4ca1-86a3-878e94f3a707","ActionName":"AuthServiceIN6BM.Api.Controllers.AuthController.Login (AuthServiceIN6BM.Api)","RequestId":"0HNJ5KR25O77N:00000005","RequestPath":"/api/v1/auth/login","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:47:39 INF] HTTP POST /api/v1/auth/login responded 200 in 89.0464 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77N:00000005","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:48:25 INF] HTTP GET /api/v1/auth/profile responded 200 in 43.1015 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77N:00000006","ConnectionId":"0HNJ5KR25O77N"}
+[2026-02-06 11:49:20 INF] HTTP PUT /api/v1/users/usr_GE7sKD8DGTPH/role responded 403 in 44.6170 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJ5KR25O77N:00000007","ConnectionId":"0HNJ5KR25O77N"}
